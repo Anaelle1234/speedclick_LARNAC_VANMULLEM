@@ -15,6 +15,7 @@ public class Speed_click_LARNAC_VANMULLEM {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("salut j'aime la ratatouille");
     }
     
 }
