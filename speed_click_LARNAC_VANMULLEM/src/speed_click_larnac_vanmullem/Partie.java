@@ -13,14 +13,18 @@ import java.util.Random;
 public class Partie {
     plateaudejeu plateau;
     
-    Random r1 =new Random();
+    Random r1 =new Random();//génère ligne au hasard
     int ligne=r1.nextInt(9);
           
-    Random r2 =new Random();
+    Random r2 =new Random();//génère colonne au hasard
     int col=r2.nextInt(8);
     
-    
-    plateau.allumercellule(ligne,col);
-        }
+   public Partie(){
+       plateau=new plateaudejeu();
+       plateau.placerbouton(ligne,col);//on place un bouton au hasard
+   }
+   
+}
+   
 
 

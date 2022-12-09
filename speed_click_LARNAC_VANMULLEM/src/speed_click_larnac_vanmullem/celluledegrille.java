@@ -19,4 +19,6 @@ public class celluledegrille {
         allumer=true;
     }
     //if bouton pas validé ça devient allumer ==false
+
+ 
 }
