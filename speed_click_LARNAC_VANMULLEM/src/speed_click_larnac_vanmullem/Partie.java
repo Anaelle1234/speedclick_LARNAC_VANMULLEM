@@ -11,6 +11,16 @@ import java.util.Random;
  * @author Soso
  */
 public class Partie {
+    plateaudejeu plateau;
     
-}
+    Random r1 =new Random();
+    int ligne=r1.nextInt(9);
+          
+    Random r2 =new Random();
+    int col=r2.nextInt(8);
+    
+    
+    plateau.allumercellule(ligne,col);
+        }
+
 

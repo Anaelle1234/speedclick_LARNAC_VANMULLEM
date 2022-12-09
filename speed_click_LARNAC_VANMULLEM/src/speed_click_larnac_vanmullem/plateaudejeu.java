@@ -30,9 +30,7 @@ public void placerhasard_i(int i){
                 j=r.nextInt(7);
             }   
             
-public void allumercellule(int x,int y){
-    grille[x][y].allumercellule();
-}
+
   
             
         

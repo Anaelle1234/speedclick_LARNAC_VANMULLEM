@@ -10,13 +10,13 @@ package speed_click_larnac_vanmullem;
  */
 public class celluledegrille {
     bouton boutonCourant;
+    private boolean allumer;
     
-    public void affecterbouton(bouton jetonCourant) { //permet de prendre un 
-        //nouveau jeton et de l'ajouter à ceux déjà existant
-        this.boutonCourant = jetonCourant;
+    public void celluledegrille(){
+        allumer=false;
+}
+    public void placerbouton(){
+        allumer=true;
     }
-
-    void allumercellule() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    //if bouton pas validé ça devient allumer ==false
 }
