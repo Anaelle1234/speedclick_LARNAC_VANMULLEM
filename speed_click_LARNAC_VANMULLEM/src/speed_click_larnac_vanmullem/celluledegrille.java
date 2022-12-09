@@ -15,4 +15,8 @@ public class celluledegrille {
         //nouveau jeton et de l'ajouter à ceux déjà existant
         this.boutonCourant = jetonCourant;
     }
+
+    void allumercellule() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

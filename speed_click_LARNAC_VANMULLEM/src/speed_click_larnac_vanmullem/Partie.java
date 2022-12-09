@@ -4,6 +4,8 @@
  */
 package speed_click_larnac_vanmullem;
 
+import java.util.Random;
+
 /**
  *
  * @author Soso
@@ -11,3 +13,4 @@ package speed_click_larnac_vanmullem;
 public class Partie {
     
 }
+

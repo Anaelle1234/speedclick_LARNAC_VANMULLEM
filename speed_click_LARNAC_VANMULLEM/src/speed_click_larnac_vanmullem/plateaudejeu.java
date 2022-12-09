@@ -4,6 +4,8 @@
  */
 package speed_click_larnac_vanmullem;
 
+import java.util.Random;
+
 /**
  *
  * @author Anaëlle
@@ -19,6 +21,22 @@ public class plateaudejeu {
         }  
     }
     
+public void placerhasard_i(int i){
+                Random r =new Random();
+                i=r.nextInt(7);
+            }
+        public void placerhasard_j(int j){
+                Random r =new Random();
+                j=r.nextInt(7);
+            }   
+            
+public void allumercellule(int x,int y){
+    grille[x][y].allumercellule();
+}
+  
+            
+        
+
     public int ajouterJetonDanstableau(bouton j, int c){//
         for(int i=0;i<7;i++){//on balaie les lignes
             for(int d=0;d<7;d++){
@@ -32,3 +50,4 @@ public class plateaudejeu {
    return -1;   //on rajoute pour ne pas créer un bug  
     }
 }
+
