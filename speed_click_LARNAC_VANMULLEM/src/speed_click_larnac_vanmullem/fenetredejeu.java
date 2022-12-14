@@ -9,13 +9,26 @@ package speed_click_larnac_vanmullem;
  * @author Anaëlle
  */
 public class fenetredejeu extends javax.swing.JFrame {
+//création JFrame de la fenetre avec bordure et titre
 
+        
+    celluledegrille grille = new celluledegrille();
     /**
      * Creates new form fenetredejeu
      */
+
     public fenetredejeu() {
         initComponents();
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
+                Cellulegraphique cellgraphe = new Cellulegraphique(grille);
+                panneau_grille.add(cellgraphe);
+            }
+        }
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,6 +41,7 @@ public class fenetredejeu extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jlabel = new javax.swing.JLabel();
+        panneau_grille = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,28 +54,47 @@ public class fenetredejeu extends javax.swing.JFrame {
 
         jlabel.setText("jLabel1");
 
+        panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panneau_grilleLayout = new javax.swing.GroupLayout(panneau_grille);
+        panneau_grille.setLayout(panneau_grilleLayout);
+        panneau_grilleLayout.setHorizontalGroup(
+            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+        );
+        panneau_grilleLayout.setVerticalGroup(
+            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 379, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(panneau_grille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jlabel)))
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jlabel)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
+                .addGap(45, 45, 45)
+                .addComponent(panneau_grille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(40, 40, 40)
+                .addGap(112, 112, 112)
                 .addComponent(jlabel)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(137, 137, 137))
         );
 
         pack();
@@ -69,14 +102,6 @@ public class fenetredejeu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        compteur++;
-        switch (compteur){
-            case 1 : 
-                jlabel.setText("bravo");
-                jButton1.setVisible(false);
-                break;
-            
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -113,9 +138,11 @@ public class fenetredejeu extends javax.swing.JFrame {
             }
         });
     }
-int compteur=0;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jlabel;
+    private javax.swing.JPanel panneau_grille;
     // End of variables declaration//GEN-END:variables
 }
+
