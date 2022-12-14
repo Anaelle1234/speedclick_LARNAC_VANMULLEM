@@ -10,4 +10,17 @@ package speed_click_larnac_vanmullem;
  */
 public class bouton {
     
+   private String Couleur;
+    public bouton(String Couleur) {
+        this.Couleur = Couleur;
+    }
+  public String lireCouleur(){
+      return(Couleur);   
+  } 
+
+    @Override
+    public String toString() {
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+  
 }

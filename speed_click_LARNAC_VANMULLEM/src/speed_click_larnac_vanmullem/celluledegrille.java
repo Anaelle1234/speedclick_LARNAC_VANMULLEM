@@ -19,6 +19,28 @@ public class celluledegrille {
         allumer=true;
     }
     //if bouton pas validé ça devient allumer ==false
+     public boolean presenceBouton(){
+        if (boutonCourant!=null){
+            return true;
+        }else{
+            return false;
+        }    
+    }
+public boolean allumerlebouton(){
+    if (allumer==true){
+        return true;
+    }else{
+        return false;
+    }
+}
+   @Override
+    public String toString() {
+        if (boutonCourant != null){
+            return boutonCourant.toString();
+        }
+        return toString();
+    }
+
 
  
 }
