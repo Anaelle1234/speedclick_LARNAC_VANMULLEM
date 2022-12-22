@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ import javax.swing.JPanel;
 public class fentregraphique {
 
     public static void main(String[] args) {
+        plateaudejeu plateau;
         
         //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
@@ -39,10 +41,17 @@ public class fentregraphique {
         // un seul label par zone
         // si plusieurs label --> Jpanel
         
-        JPanel casePrincipale = new JPanel();
+        JPanel casePrincipale = new JPanel(new GridLayout(2,2));
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
         
+        casePrincipale.add(plateau);
+            
+        
+        JButton bouton2 = new JButton("ok");
+            casePrincipale.add(bouton2);  
+            
+            
         JPanel caseSecondaire = new JPanel(new GridLayout(1,2));
         caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
@@ -56,6 +65,9 @@ public class fentregraphique {
         JLabel chrono = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
         caseSecondaire.add((chrono));
+        
+        
+        
         
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre
