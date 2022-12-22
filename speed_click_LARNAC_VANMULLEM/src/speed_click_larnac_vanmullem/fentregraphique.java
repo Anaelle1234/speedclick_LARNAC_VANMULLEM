@@ -43,15 +43,20 @@ public class fentregraphique {
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
         
-        JPanel caseSecondaire = new JPanel();
+        JPanel caseSecondaire = new JPanel(new GridLayout(1,2));
         caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
         // composant de chaque panel (case)
-        JLabel Gain = new JLabel();
-        Gain.setBorder(BorderFactory.createTitledBorder("Points gagnés")); //créé un titre sur la bordure
+        JLabel Gain = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        Gain.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
         caseSecondaire.add((Gain));
        
+        
+        JLabel chrono = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
+        caseSecondaire.add((chrono));
+        
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre
         
