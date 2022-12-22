@@ -45,7 +45,6 @@ public class fentregraphique {
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
         
-        casePrincipale.add(plateau);
             
         
         JButton bouton2 = new JButton("ok");
