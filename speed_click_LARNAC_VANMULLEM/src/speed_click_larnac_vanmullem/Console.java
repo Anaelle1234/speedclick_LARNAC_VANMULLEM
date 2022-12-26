@@ -14,12 +14,13 @@ import java.util.Iterator;
  * @author Soso
  */
 public class Console {
-        
+    //cette partie concerne tout le code concernant le score et l'état des cellules   
     boolean[] tableau;//on prend un tableau de bolléen
     //true signifie que c'est allumer false non
     int score = 0;//on initialise le score à 0
     private final List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
-    
+    //
+    //on met final pour pouvoir avoir accès à la variable même dans les boucles
     
     public Console(int i) {
         tableau = new boolean[i];//tableau est le nom du tableau de booleen
@@ -85,7 +86,7 @@ public class Console {
          sb.append(tableau[i]);//état de la cellule
          sb.append(", ");//on séparer pour la suite de virgule
         }
-        return sb.toString();//
+        return sb.toString();//retourne tte la méthode dans la console
     }   
     
 }
