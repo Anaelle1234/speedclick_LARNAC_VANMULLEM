@@ -46,5 +46,15 @@ public class Console {
         return tableau.length;
     }
     
+    boolean getEtat(int i) {//retourne la cellule concernée
+        return tableau[i]; //allumer = true et éteint = false
+    }
+    
+    void setEtat(int i, boolean state) {//méthode pour déclarer l'état de la cellule
+        //i ->> le numéro de la cellule
+        //state->> état en booléen c-à-d allumer ou éteint (true ou false)
+        tableau[i] = state;//on prend une cellule et on y attribut son état
+    }
+    
     
 }
