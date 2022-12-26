@@ -18,7 +18,10 @@ public class Console {
     boolean[] tableau;//on prend un tableau de bolléen
     //true signifie que c'est allumer false non
     int score = 0;//on initialise le score à 0
-    private final List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
+    private final <ConsoleListener> listeners = new Tab<ConsoleListener>();
+    //on met des arraylist avec des listeners 
+    //les listeners seront placés sur les boutons pour capter leur mouvements
+    //voir tuto vidéo 6
     
     //on met final pour pouvoir avoir accès à la variable même dans les boucles
     
