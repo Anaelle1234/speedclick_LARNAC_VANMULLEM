@@ -9,8 +9,6 @@ package speed_click_larnac_vanmullem;
  * @author Anaëlle
  */
 public class ConsoleListener {
-    
     void scoreUpdated(int score);
-    
 }
 

@@ -19,7 +19,7 @@ public class Console {
     //true signifie que c'est allumer false non
     int score = 0;//on initialise le score à 0
     private final List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
-    //
+    
     //on met final pour pouvoir avoir accès à la variable même dans les boucles
     
     public Console(int i) {
