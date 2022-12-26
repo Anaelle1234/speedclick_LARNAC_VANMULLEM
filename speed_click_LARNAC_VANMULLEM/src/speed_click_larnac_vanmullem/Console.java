@@ -7,6 +7,7 @@ package speed_click_larnac_vanmullem;
 import java.awt.List;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 /**
  *
@@ -24,4 +25,26 @@ public class Console {
         tableau = new boolean[i];//tableau est le nom du tableau de booleen
         tableau[0] = true;//on commence avec la première case allumer
     }//cela fait partie des règles de jeu (définie par nous même)
+    
+    void addListener(ConsoleListener listener) {
+        listeners.add(listener);
+    }
+    
+     void Score() {//méthode pour augmenter le score
+        score++;//on incrémente le score
+        for (Iterator<ConsoleListener> it = listeners.iterator(); it.hasNext();) {//pour toutes les fois où un bouton diff va être cliqué
+            ConsoleListener next = it.next();
+            //avec leur état correspondant
+            //https://www.geeksforgeeks.org/how-to-use-iterator-in-java/
+            //Il renvoie l'élément suivant dans la collection jusqu'à ce que la méthode renvoie true.
+            next.scoreUpdated(score);//on update le score
+        }
+
+    }
+     
+    int tailleTab() {//méthode qui renvoie la longueur du tableau
+        return tableau.length;
+    }
+    
+    
 }
