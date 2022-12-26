@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,9 +18,10 @@ import javax.swing.JPanel;
  *
  * @author Anaëlle
  */
-public class Speed_click_LARNAC_VANMULLEM {
+public class fentregraphique {
 
     public static void main(String[] args) {
+        plateaudejeu plateau;
         
         //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
@@ -39,19 +41,33 @@ public class Speed_click_LARNAC_VANMULLEM {
         // un seul label par zone
         // si plusieurs label --> Jpanel
         
-        JPanel casePrincipale = new JPanel();
+        JPanel casePrincipale = new JPanel(new GridLayout(2,2));
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
         
-        JPanel caseSecondaire = new JPanel();
+            
+        
+        JButton bouton2 = new JButton("ok");
+            casePrincipale.add(bouton2);  
+            
+            
+        JPanel caseSecondaire = new JPanel(new GridLayout(1,2));
         caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
         // composant de chaque panel (case)
-        JLabel Gain = new JLabel();
-        Gain.setBorder(BorderFactory.createTitledBorder("Points gagnés")); //créé un titre sur la bordure
+        JLabel Gain = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        Gain.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
         caseSecondaire.add((Gain));
        
+        
+        JLabel chrono = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
+        caseSecondaire.add((chrono));
+        
+        
+        
+        
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre
         
