@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,10 +19,17 @@ import javax.swing.JPanel;
  * @author Anaëlle
  */
 public class interfacejeu {
-        public static void main(String[] args) {
+    
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
         interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
-       
+        interfacejeu.affichage();
+        }
     public void affichage(){
+
     //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
         frame.setPreferredSize(new Dimension(800,600)); // taille de la fenetre
@@ -52,8 +60,24 @@ public class interfacejeu {
         
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre
+        
+        //contenu des jpanel
+        JLabel chrono = new JLabel("");//j'arrive pas à agrandir la fenetre donc..
+        chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
+        caseSecondaire.add((chrono));
 
-     
- }
-    }
+        final JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
+        caseSecondaire.add(scoreLabel);
+
+        Console Console = new Console(9);//tab de 9 cases
+        JButton[] button = new JButton[9];//avec 9 boutons
+
+        for (int i = 0; i < Console.tailleTab(); i++) {
+            JButton boutton = new JButton("OK");// pour ttes cases on met un bouton
+            casePrincipale.add(boutton);//on ajoute ce bouton au cadre principale      
+}
+        
+}   
+}
 
