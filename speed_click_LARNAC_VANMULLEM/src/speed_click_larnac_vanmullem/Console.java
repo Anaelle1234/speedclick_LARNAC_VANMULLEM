@@ -40,7 +40,7 @@ public class Console {
             next.scoreUpdated(score);//on update le score
         }
 
-    }
+     }
      
     int tailleTab() {//méthode qui renvoie la longueur du tableau
         return tableau.length;
