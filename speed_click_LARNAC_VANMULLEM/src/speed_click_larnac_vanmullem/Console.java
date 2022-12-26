@@ -18,7 +18,7 @@ public class Console {
     boolean[] tableau;//on prend un tableau de bolléen
     //true signifie que c'est allumer false non
     int score = 0;//on initialise le score à 0
-    private List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
+    private final List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
     
     
     public Console(int i) {
@@ -57,4 +57,36 @@ public class Console {
     }
     
     
+    int celluleSuivante(int i) {//méthode pour le changement de cellule allumée
+        int nbr = (int) (Math.random() * tableau.length);//nbr est le prochain numéro de cellule
+         //on utilise maths random pour avoir un nombre de cellule au hasard
+         //l'étoile * sert à lier random pour aller jusqu'à la longueur de la cellule
+         //https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
+        setEtat(nbr, true);//setter pour actualiser l'état de la cellule
+        return nbr;//on retourne le nouveau numéro de cellule allumée
+    }
+    
+     
+     
+    //code pour pouvoir se reférer dans la console quand on execute le programme
+    @Override
+    //on utilise un string builder suite à l'erreur :  "may split declaration"
+    //apres des recherches sur un forum il était indiqué que si on utilisait un string builders plutot qu'un string cela semblait résoudre le probleme
+    public String toString() {
+       StringBuilder sb = new StringBuilder();
+       sb.append("Score: ");//affichage de "score"
+       sb.append(score);//affichage du score
+       sb.append(", ");// on sépare les élements d'une virgule
+    
+     for (int i = 0; i < tableau.length; i++) {//pour chacune des cellules:
+         sb.append("Cell ");//annoncer num de la cellule
+         sb.append(i);// son numéro
+         sb.append(": ");//les deux points
+         sb.append(tableau[i]);//état de la cellule
+         sb.append(", ");//on séparer pour la suite de virgule
+        }
+        return sb.toString();//
+    }   
+    
 }
+            
