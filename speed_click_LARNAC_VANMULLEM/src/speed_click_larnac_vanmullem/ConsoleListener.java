@@ -9,6 +9,9 @@ package speed_click_larnac_vanmullem;
  * @author Anaëlle
  */
 public class ConsoleListener {
-    void scoreUpdated(int score);
+
+    void scoreUpdated(int score) {
+        //par ajout de méthode par l'ampoule 
+    }
 }
 

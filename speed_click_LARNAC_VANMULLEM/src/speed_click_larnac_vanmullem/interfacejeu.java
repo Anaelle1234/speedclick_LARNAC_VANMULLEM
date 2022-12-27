@@ -19,7 +19,6 @@ import javax.swing.JPanel;
  * @author Anaëlle
  */
 public class interfacejeu {
-    
     /**
      *
      * @param args
@@ -27,6 +26,7 @@ public class interfacejeu {
     public static void main(String[] args) {
         interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
         interfacejeu.affichage();
+        interfacejeu MyListener = new MyListener();
         }
     public void affichage(){
 
@@ -74,10 +74,14 @@ public class interfacejeu {
         JButton[] button = new JButton[9];//avec 9 boutons
 
         for (int i = 0; i < Console.tailleTab(); i++) {
-            JButton boutton = new JButton("OK");// pour ttes cases on met un bouton
-            casePrincipale.add(boutton);//on ajoute ce bouton au cadre principale      
-}
-        
+            JButton bouton = new JButton("OK");// pour ttes cases on met un bouton
+            button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
+            button.addListener;//on ajoute au bouton un 'capteur' 
+            //https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html 
+            button[i] = bouton;//le bouton de la case deveient le bouton à ajouter
+
+            casePrincipale.add(bouton);//on ajoute ce bouton au cadre principale     
+}      
 }   
 }
 

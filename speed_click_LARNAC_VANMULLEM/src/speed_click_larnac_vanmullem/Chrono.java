@@ -60,7 +60,7 @@ public class Chrono extends javax.swing.JFrame{
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jButton1ActionPerformed(evt);
             }
-        };
+        
 
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
@@ -71,7 +71,7 @@ public class Chrono extends javax.swing.JFrame{
                 jButton2ActionPerformed(evt);
             }
 
-        });
+        };
 
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
