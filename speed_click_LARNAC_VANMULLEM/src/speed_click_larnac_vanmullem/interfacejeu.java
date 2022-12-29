@@ -100,25 +100,24 @@ public class interfacejeu {
      private class MyListener implements ActionListener {
        private Console Console;
         private int cellule;
-        private JButton[] bouton;
+        private JButton[] buttons;
 
         public MyListener(Console Console, JButton[] buttons, int cellule) {
             super();//on créer le constructeur de mylistener
             this.Console = Console;
             this.cellule = cellule;
-            this.bouton = bouton;
+            this.buttons = buttons;
         }
 
    
         public void actionPerformed(ActionEvent e) {//quand on clique sur un bouton
-            JButton sourcebouton = (JButton) e.getSource();
-            sourcebouton.setEnabled(false); // on le rend pas cliquable
+            JButton source = (JButton) e.getSource();
+            source.setEnabled(false); // on le rend pas cliquable
             Console.setEtat(cellule, false);//on passe l'état de la cellule à false
             int next = Console.celluleSuivante(cellule);
             Console.Score();//on actualise le score
             System.out.println(Console);//on écrit dans la console une nouvelle lign pour l'état de chaque cellule
-           
-            bouton[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
+            buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
             
         }
 

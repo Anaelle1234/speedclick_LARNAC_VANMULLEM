@@ -38,12 +38,12 @@ public class Console {
     }
      void Score() {//méthode pour augmenter le score
         score++;//on incrémente le score
-        for (Iterator<ConsoleListener> it = listeners.iterator(); it.hasNext();) {//pour toutes les fois où un bouton diff va être cliqué
-            ConsoleListener next = it.next();
+        for (ConsoleListener next : listeners) {
+            //pour toutes les fois où un bouton diff va être cliqué
             //avec leur état correspondant
             //https://www.geeksforgeeks.org/how-to-use-iterator-in-java/
             //Il renvoie l'élément suivant dans la collection jusqu'à ce que la méthode renvoie true.
-            next.scoreUpdated(score);//on update le score
+            next.scoreUpdated(score); //on update le score
         }
 
      }
