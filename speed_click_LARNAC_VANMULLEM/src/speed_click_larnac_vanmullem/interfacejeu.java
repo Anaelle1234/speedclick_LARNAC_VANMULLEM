@@ -10,12 +10,12 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.lang.System.console;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 /**
@@ -32,7 +32,6 @@ public class interfacejeu {
         interfacejeu.affichage();
         }
     public void affichage(){
-
     //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
         frame.setPreferredSize(new Dimension(800,600)); // taille de la fenetre
@@ -62,11 +61,11 @@ public class interfacejeu {
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
         //contenu des jpanel
-        JLabel chrono = new JLabel("");//j'arrive pas à agrandir la fenetre donc..
+        JLabel chrono = new JLabel();//j'arrive pas à agrandir la fenetre donc..
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
-        caseSecondaire.add((chrono));
+        caseSecondaire.add(chrono);
 
-        final JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
         caseSecondaire.add(scoreLabel);
 
@@ -120,8 +119,8 @@ public class interfacejeu {
             buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
             
         }
-
+        
+        
+        
      }
 }
-
-

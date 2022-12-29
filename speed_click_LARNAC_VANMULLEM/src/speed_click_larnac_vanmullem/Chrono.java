@@ -28,7 +28,7 @@ public class Chrono extends javax.swing.JFrame{
         };
         /* instanciation du timer */
         monChrono = new Timer(1000, tache_recurrente);
-    }
+    
     
     /**
 
@@ -55,7 +55,7 @@ public class Chrono extends javax.swing.JFrame{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jButton1.setText("start");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener()) {
         }
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jButton1ActionPerformed(evt);
