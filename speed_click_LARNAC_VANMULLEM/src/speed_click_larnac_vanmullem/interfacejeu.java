@@ -50,7 +50,7 @@ public class interfacejeu {
         // si plusieurs label --> Jpanel
         
         
-        JPanel casePrincipale = new JPanel(new GridLayout(1,1));
+        JPanel casePrincipale = new JPanel(new GridLayout(5,5));
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
             
@@ -58,8 +58,7 @@ public class interfacejeu {
         caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
-        frame.pack(); //calcul sa taille final
-        frame.setVisible(true); //montre la fenetre
+       
         
         //contenu des jpanel
         JLabel chrono = new JLabel("");//j'arrive pas à agrandir la fenetre donc..
@@ -71,19 +70,19 @@ public class interfacejeu {
         caseSecondaire.add(scoreLabel);
 
         
-        Console Console = new Console(9);//tab de 9 cases
-        JButton[] buttons = new JButton[9];//avec 9 boutons
+        Console Console = new Console(25);//tab de 9 cases
+        JButton[] buttons = new JButton[25];//avec 9 boutons
         for (int i = 0; i < Console.tailleTab(); i++) {
             JButton button = new JButton("");// pour ttes cases on met un bouton
-            button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
-            button.addActionListener((ActionListener) new MyListener(Console,buttons, i));//on ajoute au bouton un 'capteur' 
+            
             //https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html 
             //action listener ajouter par l'ampoule de java
             buttons[i] = button;//le bouton de la case deveient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
    
-           
+        frame.pack(); //calcul sa taille final
+        frame.setVisible(true); //montre la fenetre   
    
 }   
 }
