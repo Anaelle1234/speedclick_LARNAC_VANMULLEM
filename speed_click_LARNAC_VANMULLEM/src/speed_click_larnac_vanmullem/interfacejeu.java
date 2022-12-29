@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 /**
  *
  * @author Anaëlle
@@ -90,7 +91,7 @@ public class interfacejeu {
                 scoreLabel.setText(Integer.toString(score));//on actualise le score
             }
             };//je sais pas pourquoi il veule un ; là...
-        Console.addListener(ConsoleListener);  
+        Console.addListener(ConsoleListener); //on ajoute les listeners 
     }  
     
     
@@ -109,8 +110,9 @@ public class interfacejeu {
 
    
         public void actionPerformed(ActionEvent e) {//quand on clique sur un bouton
-            JButton source = (JButton) e.getSource();
-            source.setEnabled(false); // on le rend pas cliquable
+            JButton sourcebouton = (JButton) e.getSource();
+            sourcebouton.setBackground(Color.red);
+            sourcebouton.setEnabled(false); // on le rend pas cliquable
             Console.setEtat(cellule, false);//on passe l'état de la cellule à false
             int next = Console.celluleSuivante(cellule);
             Console.Score();//on actualise le score

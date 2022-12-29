@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 
+
 /**
  *
  * @author Soso
@@ -18,7 +19,7 @@ public class Console {
     boolean[] tableau;//on prend un tableau de bolléen
     //true signifie que c'est allumer false non
     int score = 0;//on initialise le score à 0
-    private final ArrayList<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
+    private java.util.List<ConsoleListener> listeners = new ArrayList<ConsoleListener>();
     //pour cette ligne ci-dessus : on a d'abord fait avec l'aide de ce site : https://stackoverflow.com/questions/16529273/how-to-add-listener-on-arraylist-in-java
     //puis java nous recommandé de le mettre en final et en private
     //on met des arraylist avec des listeners 
@@ -32,7 +33,7 @@ public class Console {
         tableau[0] = true;//on commence avec la première case allumer
     }//cela fait partie des règles de jeu (définie par nous même)
     
-    public void addListener(ConsoleListener listener) {
+    void addListener(ConsoleListener listener) {
         listeners.add(listener);
     }
     
