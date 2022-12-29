@@ -33,8 +33,7 @@ public class interfacejeu {
     public void affichage(){
     //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
-        frame.setPreferredSize(new Dimension(800,600)); // taille de la fenetre
-        frame.getContentPane().setBackground(Color.PINK);
+        frame.setPreferredSize(new Dimension(1000,650)); // taille de la fenetre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //ferme la fenetre = prog s'arrete
         
         //frame.setLayout(new GridLayout(1,2)); grille de 1 ligne et 2 colonnes --> 1 label = 1 case
@@ -51,7 +50,7 @@ public class interfacejeu {
         // si plusieurs label --> Jpanel
         
         
-        JPanel casePrincipale = new JPanel(new GridLayout(5,5));
+        JPanel casePrincipale = new JPanel(new GridLayout(6,6));
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
             
@@ -71,8 +70,8 @@ public class interfacejeu {
         caseSecondaire.add(scoreLabel);
 
         
-    Console Console = new Console(25);//tab de 9 cases
-    JButton[] buttons = new JButton[25];//avec 9 boutons
+    Console Console = new Console(36);//tab de 9 cases
+    JButton[] buttons = new JButton[36];//avec 9 boutons
      for (int i = 0; i < Console.tailleTab(); i++) {
             JButton button = new JButton("");// pour ttes cases on met un bouton
             button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
@@ -116,8 +115,9 @@ public class interfacejeu {
             Console.setEtat(cellule, false);//on passe l'état de la cellule à false
             int next = Console.celluleSuivante(cellule);
             Console.Score();//on actualise le score
-            System.out.println(Console);//on écrit dans la console une nouvelle lign pour l'état de chaque cellule
+            System.out.println(Console);//on écrit dans la console une nouvelle ligne pour l'état de chaque cellule
             buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
+            
         }
         
         
