@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +27,6 @@ public class interfacejeu {
     public static void main(String[] args) {
         interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
         interfacejeu.affichage();
-        interfacejeu MyListener = new MyListener();
         }
     public void affichage(){
 
@@ -43,14 +43,14 @@ public class interfacejeu {
         //label1.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));//titre du label
         //frame.add(label1,BorderLayout.CENTER); //zone principale (=zone de jeu
         
-        JLabel label2 = new JLabel ("Choisissez votre chrono et augmentez votre score en cliquant le plus vite possible sur les boutons rouges.");
+        JLabel label2 = new JLabel ("Choisissez votre chrono et augmentez votre score en cliquant le plus vite possible sur les boutons.");
         label2.setBorder(BorderFactory.createTitledBorder("Règles du jeu :")); //titre
         frame.add(label2, BorderLayout.NORTH);
         // un seul label par zone
         // si plusieurs label --> Jpanel
         
         
-        JPanel casePrincipale = new JPanel(new GridLayout(3,3));
+        JPanel casePrincipale = new JPanel(new GridLayout(1,1));
         casePrincipale.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));
         frame.add(casePrincipale, BorderLayout.CENTER);
             
@@ -70,18 +70,21 @@ public class interfacejeu {
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
         caseSecondaire.add(scoreLabel);
 
+        
         Console Console = new Console(9);//tab de 9 cases
-        JButton[] button = new JButton[9];//avec 9 boutons
-
+        JButton[] buttons = new JButton[9];//avec 9 boutons
         for (int i = 0; i < Console.tailleTab(); i++) {
-            JButton bouton = new JButton("OK");// pour ttes cases on met un bouton
+            JButton button = new JButton("");// pour ttes cases on met un bouton
             button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
-            button.addListener;//on ajoute au bouton un 'capteur' 
+            button.addActionListener((ActionListener) new MyListener(Console,buttons, i));//on ajoute au bouton un 'capteur' 
             //https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html 
-            button[i] = bouton;//le bouton de la case deveient le bouton à ajouter
-
-            casePrincipale.add(bouton);//on ajoute ce bouton au cadre principale     
-}      
+            //action listener ajouter par l'ampoule de java
+            buttons[i] = button;//le bouton de la case deveient le bouton à ajouter
+            casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
+        }
+   
+           
+   
 }   
 }
 
