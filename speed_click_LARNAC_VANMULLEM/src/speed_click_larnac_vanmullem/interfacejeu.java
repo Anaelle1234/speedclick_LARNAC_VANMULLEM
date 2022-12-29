@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.System.console;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -70,15 +71,15 @@ public class interfacejeu {
         caseSecondaire.add(scoreLabel);
 
         
-        Console console = new Console(25);//tab de 9 cases
-        JButton[] buttons = new JButton[25];//avec 9 boutons
-        for (int i = 0; i < Console.tailleTab(); i++) {
+    Console Console = new Console(25);//tab de 9 cases
+    JButton[] buttons = new JButton[25];//avec 9 boutons
+     for (int i = 0; i < Console.tailleTab(); i++) {
             JButton button = new JButton("");// pour ttes cases on met un bouton
             button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
-            button.addActionListener(new MyListener(console,buttons, i));//on ajoute au bouton un 'capteur' 
+            button.addActionListener(new MyListener(Console,buttons, i));//on ajoute au bouton un 'capteur' 
             //https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html 
             //action listener ajouter par l'ampoule de java
-            buttons[i] = button;//le bouton de la case deveient le bouton à ajouter
+            buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
    
@@ -111,7 +112,6 @@ public class interfacejeu {
    
         public void actionPerformed(ActionEvent e) {//quand on clique sur un bouton
             JButton sourcebouton = (JButton) e.getSource();
-            sourcebouton.setBackground(Color.red);
             sourcebouton.setEnabled(false); // on le rend pas cliquable
             Console.setEtat(cellule, false);//on passe l'état de la cellule à false
             int next = Console.celluleSuivante(cellule);

@@ -36,7 +36,6 @@ public class Console {
     void addListener(ConsoleListener listener) {
         listeners.add(listener);
     }
-    
      void Score() {//méthode pour augmenter le score
         score++;//on incrémente le score
         for (Iterator<ConsoleListener> it = listeners.iterator(); it.hasNext();) {//pour toutes les fois où un bouton diff va être cliqué
