@@ -8,15 +8,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Timer;
-
 
 /**
  *
@@ -61,9 +60,11 @@ public class interfacejeu {
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
         //contenu des jpanel
-        JLabel chrono = new JLabel();//j'arrive pas à agrandir la fenetre donc..
+        JLabel chrono = new JLabel();
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
         caseSecondaire.add(chrono);
+        
+
 
         JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
@@ -92,9 +93,9 @@ public class interfacejeu {
             }
             };//je sais pas pourquoi il veule un ; là...
         Console.addListener(ConsoleListener); //on ajoute les listeners 
-    }  
-    
-    
+         
+
+    }
 //suppression de la classe my listner et ajout ici car je n'arrive pas à l'appeler correctement
      private class MyListener implements ActionListener {
        private Console Console;
@@ -117,7 +118,6 @@ public class interfacejeu {
             Console.Score();//on actualise le score
             System.out.println(Console);//on écrit dans la console une nouvelle lign pour l'état de chaque cellule
             buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
-            
         }
         
         
