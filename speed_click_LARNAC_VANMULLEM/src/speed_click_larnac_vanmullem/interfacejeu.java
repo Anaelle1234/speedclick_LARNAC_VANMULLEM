@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -58,8 +59,6 @@ public class interfacejeu {
         caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
-       
-        
         //contenu des jpanel
         JLabel chrono = new JLabel("");//j'arrive pas à agrandir la fenetre donc..
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
@@ -70,11 +69,12 @@ public class interfacejeu {
         caseSecondaire.add(scoreLabel);
 
         
-        Console Console = new Console(25);//tab de 9 cases
+        Console console = new Console(25);//tab de 9 cases
         JButton[] buttons = new JButton[25];//avec 9 boutons
         for (int i = 0; i < Console.tailleTab(); i++) {
             JButton button = new JButton("");// pour ttes cases on met un bouton
-            
+            button.setEnabled(Console.getEtat(i)); // on initialise l'état de la cellule
+            button.addActionListener(new MyListener(console,buttons, i));//on ajoute au bouton un 'capteur' 
             //https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html 
             //action listener ajouter par l'ampoule de java
             buttons[i] = button;//le bouton de la case deveient le bouton à ajouter
@@ -84,6 +84,43 @@ public class interfacejeu {
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre   
    
-}   
+            ConsoleListener ConsoleListener = new ConsoleListener() {
+            @Override
+            public void scoreUpdated(int score) {
+                scoreLabel.setText(Integer.toString(score));//on actualise le score
+            }
+            };//je sais pas pourquoi il veule un ; là...
+        Console.addListener(ConsoleListener);  
+    }  
+    
+    
+//suppression de la classe my listner et ajout ici car je n'arrive pas à l'appeler correctement
+     private class MyListener implements ActionListener {
+       private Console Console;
+        private int cellule;
+        private JButton[] bouton;
+
+        public MyListener(Console Console, JButton[] buttons, int cellule) {
+            super();//on créer le constructeur de mylistener
+            this.Console = Console;
+            this.cellule = cellule;
+            this.bouton = bouton;
+        }
+
+   
+        public void actionPerformed(ActionEvent e) {//quand on clique sur un bouton
+            JButton source = (JButton) e.getSource();
+            source.setEnabled(false); // on le rend pas cliquable
+            Console.setEtat(cellule, false);//on passe l'état de la cellule à false
+            int next = Console.celluleSuivante(cellule);
+            Console.Score();//on actualise le score
+            System.out.println(Console);//on écrit dans la console une nouvelle lign pour l'état de chaque cellule
+           
+            bouton[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
+            
+        }
+
+     }
 }
+
 

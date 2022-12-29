@@ -32,7 +32,7 @@ public class Console {
         tableau[0] = true;//on commence avec la première case allumer
     }//cela fait partie des règles de jeu (définie par nous même)
     
-    void addListener(ConsoleListener listener) {
+    public void addListener(ConsoleListener listener) {
         listeners.add(listener);
     }
     
@@ -93,6 +93,7 @@ public class Console {
         }
         return sb.toString();//retourne tte la méthode dans la console
     }   
+
     
 }
             
