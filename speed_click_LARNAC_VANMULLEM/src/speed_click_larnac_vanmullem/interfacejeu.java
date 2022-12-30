@@ -22,16 +22,30 @@ import javax.swing.Timer;
  * @author Anaëlle
  */
 public class interfacejeu {
+    
     /**
      *
      * @param args
      */
+    
+        
+    
+    
     public static void main(String[] args) {
         interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
         interfacejeu.affichage();
+        
+        
+    java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+interfacejeu.fenetre_chrono();
+            }
+        });
+    
         }
+  
     public void affichage(){
-    //création JFrame de la fenetre avec bordure et titre
+            //création JFrame de la fenetre avec bordure et titre
         JFrame frame = new JFrame("Speed Click Game");
         frame.setPreferredSize(new Dimension(1000,650)); // taille de la fenetre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //ferme la fenetre = prog s'arrete
@@ -63,7 +77,8 @@ public class interfacejeu {
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
         caseSecondaire.add(chrono);
         
-
+        JLabel jLabel1 = new JLabel();
+        caseSecondaire.add(jLabel1);
 
         JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
@@ -81,10 +96,10 @@ public class interfacejeu {
             buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
-   
+
+        
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre   
-   
             ConsoleListener ConsoleListener = new ConsoleListener() {
             @Override
             public void scoreUpdated(int score) {
@@ -92,9 +107,62 @@ public class interfacejeu {
             }
             };//je sais pas pourquoi il veule un ; là...
         Console.addListener(ConsoleListener); //on ajoute les listeners 
-         
-
     }
+    Timer monChrono;
+    int nbSecondes=0;
+    public void fenetre_chrono() {
+        initComponents();
+
+        ActionListener tache_recurrente = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e1) {
+                
+                nbSecondes++;
+                txt_temps.setText(nbSecondes + "");
+                System.out.println(nbSecondes);
+                
+            }
+        ;
+        };
+		/* instanciation du timer */
+	monChrono = new Timer(1000, tache_recurrente);
+        
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        monChrono.stop();        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        monChrono.start();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        nbSecondes = 0;
+        txt_temps.setText(nbSecondes + "");
+    }
+
+    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private Object getContentPane() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void pack() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void initComponents() {
+    }
+    
+
+    
 //suppression de la classe my listner et ajout ici car je n'arrive pas à l'appeler correctement
      private class MyListener implements ActionListener {
        private Console Console;
@@ -123,4 +191,19 @@ public class interfacejeu {
         
         
      }
-}
+     
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
+     
+     
+     
+     
+     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+     private javax.swing.JLabel txt_temps;
+    } 
+    
+

@@ -15,6 +15,7 @@ import java.util.Iterator;
  * @author Soso
  */
 public class Console {
+
     //cette partie concerne tout le code concernant le score et l'état des cellules   
     boolean[] tableau;//on prend un tableau de bolléen
     //true signifie que c'est allumer false non
