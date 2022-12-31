@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
 import javax.swing.Timer;
 
 /**
@@ -35,14 +36,7 @@ public class interfacejeu {
         interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
         interfacejeu.affichage();
         
-        
-    java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-interfacejeu.fenetre_chrono();
-            }
-        });
-    
-        }
+    }
   
     public void affichage(){
             //création JFrame de la fenetre avec bordure et titre
@@ -69,16 +63,16 @@ interfacejeu.fenetre_chrono();
         frame.add(casePrincipale, BorderLayout.CENTER);
             
         JPanel caseSecondaire = new JPanel(new GridLayout(1,2));//on fait une grille avec les éléments
-        caseSecondaire.setBorder(BorderFactory.createTitledBorder("Score :"));
+        caseSecondaire.setBorder(BorderFactory.createTitledBorder("   "));
         frame.add(caseSecondaire, BorderLayout.SOUTH);
         
+               
         //contenu des jpanel
-        JLabel chrono = new JLabel();
+        JLabel chrono = new JLabel("  ");
         chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
         caseSecondaire.add(chrono);
         
-        JLabel jLabel1 = new JLabel();
-        caseSecondaire.add(jLabel1);
+        
 
         JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
@@ -96,7 +90,21 @@ interfacejeu.fenetre_chrono();
             buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
-
+    
+     ActionListener tache_recurrente;
+        tache_recurrente = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e1) {
+                
+                nbSecondes++;
+                txt_temps.setText(nbSecondes + "");
+                System.out.println(nbSecondes);
+                chrono.setText("ss");           
+            }
+            ;
+        };
+		/* instanciation du timer */
+	monChrono = new Timer(1000, tache_recurrente);
         
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre   
@@ -110,23 +118,12 @@ interfacejeu.fenetre_chrono();
     }
     Timer monChrono;
     int nbSecondes=0;
+    
     public void fenetre_chrono() {
         initComponents();
 
-        ActionListener tache_recurrente = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e1) {
-                
-                nbSecondes++;
-                txt_temps.setText(nbSecondes + "");
-                System.out.println(nbSecondes);
-                
-            }
-        ;
-        };
-		/* instanciation du timer */
-	monChrono = new Timer(1000, tache_recurrente);
         
+                
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
