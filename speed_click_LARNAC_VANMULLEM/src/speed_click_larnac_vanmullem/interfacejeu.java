@@ -93,19 +93,21 @@ public class interfacejeu {
             buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
-
+//pour le chrono, on a pris l'idée de cette vidéo :https://www.youtube.com/watch?v=He1Pvyewr_M
    Timer chrono = new Timer();
     chrono.schedule(new TimerTask() {
-        int time=10;
+        int time=15;
             @Override
             public void run() {
-                System.out.println("time : "+time);
-                txt_temps.setText(String.valueOf(time));
-                if (time==0){
-                    cancel();
-                    casePrincipale.setVisible(false);
-                    JFrame frame2 = new JFrame("Resultat");
-                    frame2.add(casePrincipale, BorderLayout.CENTER);
+                System.out.println("time : "+time);//affichage dans la console
+                txt_temps.setText(String.valueOf(time));//modif du label
+                if (time==0){//si le temps est écoulé
+                    cancel();//on arrete le chrono
+                    casePrincipale.setVisible(false);//on supprime l'affichage de la grille
+                    JFrame frame2 = new JFrame("Resultat");//on crée une nouvelle fenetre
+                    frame2.add(casePrincipale, BorderLayout.CENTER);//on la place au centre
+                    //provient de ce site : https://www.delftstack.com/fr/howto/java/java-pop-up-window/
+                    //pour que ce soit une fentre pop up
                     JOptionPane.showMessageDialog(frame2, "Le temps est écoulé ! "+"\n"+"votre score est de : "+Console.score);
                     
                 }
