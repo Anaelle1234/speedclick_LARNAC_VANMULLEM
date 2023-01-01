@@ -135,7 +135,7 @@ public class interfacejeu {
                 System.out.println("clic");
                 Console.moinsScore();
             }
-
+           
             @Override
             public void mousePressed(MouseEvent e) {
                 System.out.println("press");  
@@ -156,9 +156,7 @@ public class interfacejeu {
                 System.out.println("exited");
             }
         };
-        casePrincipale.addMouseListener(monMouseListener);
-                    
-        
+        frame.addMouseListener(monMouseListener);
         
     }
     // début chrono

@@ -7,6 +7,7 @@ package speed_click_larnac_vanmullem;
 import java.awt.List;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.Iterator;
 
 
@@ -39,7 +40,8 @@ public class Console {
     }
      void Score() {//méthode pour augmenter le score
         score++;//on incrémente le score
-        for (ConsoleListener next : listeners) {
+        for (Iterator<ConsoleListener> it = listeners.iterator(); it.hasNext();) {
+            ConsoleListener next = it.next();
             //pour toutes les fois où un bouton diff va être cliqué
             //avec leur état correspondant
             //https://www.geeksforgeeks.org/how-to-use-iterator-in-java/
@@ -49,7 +51,7 @@ public class Console {
 
      }
      void moinsScore(){
-         score--;
+             score--;
     }
      
     int tailleTab() {//méthode qui renvoie la longueur du tableau
@@ -97,6 +99,8 @@ public class Console {
         }
         return sb.toString();//retourne tte la méthode dans la console
     }   
+
+    
 
     
 }
