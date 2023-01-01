@@ -96,7 +96,7 @@ public class interfacejeu {
 //pour le chrono, on a pris l'idée de cette vidéo :https://www.youtube.com/watch?v=He1Pvyewr_M
    Timer chrono = new Timer();
     chrono.schedule(new TimerTask() {
-        int time=15;
+        int time=60;
             @Override
             public void run() {
                 System.out.println("time : "+time);//affichage dans la console
@@ -109,7 +109,6 @@ public class interfacejeu {
                     //provient de ce site : https://www.delftstack.com/fr/howto/java/java-pop-up-window/
                     //pour que ce soit une fentre pop up
                     JOptionPane.showMessageDialog(frame2, "Le temps est écoulé ! "+"\n"+"votre score est de : "+Console.score);
-                    
                 }
                 time--;
             }
@@ -134,6 +133,7 @@ public class interfacejeu {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("clic");
+                Console.moinsScore();
             }
 
             @Override
@@ -156,6 +156,7 @@ public class interfacejeu {
                 System.out.println("exited");
             }
         };
+        casePrincipale.addMouseListener(monMouseListener);
                     
         
         

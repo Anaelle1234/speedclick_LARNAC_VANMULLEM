@@ -48,6 +48,9 @@ public class Console {
         }
 
      }
+     void moinsScore(){
+         score--;
+    }
      
     int tailleTab() {//méthode qui renvoie la longueur du tableau
         return tableau.length;
