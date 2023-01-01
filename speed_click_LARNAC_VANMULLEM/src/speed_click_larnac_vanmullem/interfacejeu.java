@@ -19,6 +19,7 @@ import java.util.TimerTask;
 import javax.swing.Action;
 import javax.swing.Icon;
 import java.util.Timer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,7 +104,10 @@ public class interfacejeu {
                 if (time==0){
                     cancel();
                     casePrincipale.setVisible(false);
-                
+                    JFrame frame2 = new JFrame("Resultat");
+                    frame2.add(casePrincipale, BorderLayout.CENTER);
+                    JOptionPane.showMessageDialog(frame2, "Le temps est écoulé ! "+"\n"+"votre score est de : "+Console.score);
+                    
                 }
                 time--;
             }
@@ -182,17 +186,7 @@ public class interfacejeu {
         
      }
      
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     
-     
-     
-     
-     
-     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     } 
     
 
