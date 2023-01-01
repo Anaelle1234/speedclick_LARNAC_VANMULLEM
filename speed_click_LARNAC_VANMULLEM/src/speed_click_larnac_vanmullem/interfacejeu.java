@@ -130,8 +130,8 @@ public class interfacejeu {
         //partie controle des clics
         
         MouseListener monMouseListener = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
+            //@Override
+            if (mouseClicked(MouseEvent e) { //public void ...
                 System.out.println("clic");
                 Console.moinsScore();
             }
