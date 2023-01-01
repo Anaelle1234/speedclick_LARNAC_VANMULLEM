@@ -15,8 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.TimerTask;
+import javax.swing.Action;
 import javax.swing.Icon;
-import javax.swing.Timer;
+import java.util.Timer;
 
 /**
  *
@@ -68,9 +70,9 @@ public class interfacejeu {
         
                
         //contenu des jpanel
-        JLabel chrono = new JLabel("  ");
-        chrono.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
-        caseSecondaire.add(chrono);
+        JLabel txt_temps = new JLabel("  ");
+        txt_temps.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
+        caseSecondaire.add(txt_temps);
         
         
 
@@ -90,21 +92,29 @@ public class interfacejeu {
             buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
-    
-    ActionListener tache_recurrente;
-        tache_recurrente = new ActionListener() {
+
+   Timer chrono = new Timer();
+    chrono.schedule(new TimerTask() {
+        int time=10;
             @Override
-            public void actionPerformed(ActionEvent e1) {
-                
-                nbSecondes++;
-                txt_temps.setText(nbSecondes + "");
-                System.out.println(nbSecondes);
-                chrono.setText("ss");           
+            public void run() {
+                System.out.println("time : "+time);
+                txt_temps.add(txt_temps, time);
+                if (time==0){
+                    cancel();
+                }
+                time--;
             }
-            ;
-        };
-		/* instanciation du timer */
-	monChrono = new Timer(1000, tache_recurrente);
+    }, 1000,1000);
+     
+    
+            
+    
+            
+            
+  
+     
+      
         
         frame.pack(); //calcul sa taille final
         frame.setVisible(true); //montre la fenetre   
@@ -121,62 +131,25 @@ public class interfacejeu {
     //int nbSecondes=0;
     
      // test autre chrono
-    Timer chrono = new Timer();
-    chrono.schedule(new TimerTask(){
-        int time = 60;
-        @Override
-        public void run(){
-        System.out.println("tic-tac" + time);
+    //Timer chrono = new Timer();
+    //chrono.schedule(new TimerTask(){
+      //  int time = 60;
+        //@Override
+        //public void run(){
+        //System.out.println("tic-tac" + time);
         
-        if (time==10){
-            System.out.println("Temps bientôt écoulé");
-        }
-        if (time ==0) {
-            cancel();
-        }
-        time--;
-    }
-    }
+        //if (time==10){
+          //  System.out.println("Temps bientôt écoulé");
+        //}
+        //if (time ==0) {
+        //    cancel();
+      //  }
+        //time--;
+    //}
+        //return null;
+    //}
     // pas ouf
     
-    public void fenetre_chrono() {
-        initComponents();
-            
-    }
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        monChrono.stop();        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        monChrono.start();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        nbSecondes = 0;
-        txt_temps.setText(nbSecondes + "");
-    }
-
-    private void setDefaultCloseOperation(int EXIT_ON_CLOSE) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private Object getContentPane() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void pack() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void initComponents() {
-    }
-    
-
     
 //suppression de la classe my listner et ajout ici car je n'arrive pas à l'appeler correctement
      private class MyListener implements ActionListener {
@@ -218,7 +191,6 @@ public class interfacejeu {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel txt_temps;
     } 
     
 
