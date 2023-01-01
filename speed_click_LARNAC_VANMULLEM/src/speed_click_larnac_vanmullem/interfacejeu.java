@@ -5,7 +5,6 @@
 package speed_click_larnac_vanmullem;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
@@ -15,9 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.TimerTask;
-import javax.swing.Action;
-import javax.swing.Icon;
 import java.util.Timer;
 import javax.swing.JOptionPane;
 
@@ -93,6 +92,7 @@ public class interfacejeu {
             buttons[i] = button;//le bouton de la case devient le bouton à ajouter
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
+     
 //pour le chrono, on a pris l'idée de cette vidéo :https://www.youtube.com/watch?v=He1Pvyewr_M
    Timer chrono = new Timer();
     chrono.schedule(new TimerTask() {
@@ -114,18 +114,12 @@ public class interfacejeu {
                 time--;
             }
     }, 1000,1000);
-     
-    
-            
-    
-            
-            
-  
-     
-      
+           
         
         frame.pack(); //calcul sa taille final
-        frame.setVisible(true); //montre la fenetre   
+        frame.setVisible(true); //montre la fenetre  
+        
+        
             ConsoleListener ConsoleListener = new ConsoleListener() {
             @Override
             public void scoreUpdated(int score) {
@@ -133,6 +127,38 @@ public class interfacejeu {
             }
             };//je sais pas pourquoi il veule un ; là...
         Console.addListener(ConsoleListener); //on ajoute les listeners 
+        
+        //partie controle des clics
+        
+        MouseListener monMouseListener = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("clic");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println("press");  
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                System.out.println("released");
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                System.out.println("entered");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                System.out.println("exited");
+            }
+        };
+                    
+        
+        
     }
     // début chrono
     //Timer monChrono;
@@ -171,8 +197,7 @@ public class interfacejeu {
             this.cellule = cellule;
             this.buttons = buttons;
         }
-
-   
+        
         public void actionPerformed(ActionEvent e) {//quand on clique sur un bouton
             JButton source = (JButton) e.getSource();
             source.setEnabled(false); // on le rend pas cliquable
@@ -180,15 +205,9 @@ public class interfacejeu {
             int next = Console.celluleSuivante(cellule);
             Console.Score();//on actualise le score
             System.out.println(Console);//on écrit dans la console une nouvelle ligne pour l'état de chaque cellule
-            buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable
-            
-        }
-        
-        
-        
+            buttons[next].setEnabled(true);//le bouton suivant se rend ensuite cliquable  
+        }  
      }
-     
-    
     } 
     
 
