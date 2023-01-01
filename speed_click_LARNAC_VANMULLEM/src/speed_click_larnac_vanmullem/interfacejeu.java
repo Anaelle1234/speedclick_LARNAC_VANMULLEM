@@ -91,7 +91,7 @@ public class interfacejeu {
             casePrincipale.add(button);//on ajoute ce bouton au cadre principale      
         }
     
-     ActionListener tache_recurrente;
+    ActionListener tache_recurrente;
         tache_recurrente = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e1) {
@@ -116,14 +116,32 @@ public class interfacejeu {
             };//je sais pas pourquoi il veule un ; là...
         Console.addListener(ConsoleListener); //on ajoute les listeners 
     }
-    Timer monChrono;
-    int nbSecondes=0;
+    // début chrono
+    //Timer monChrono;
+    //int nbSecondes=0;
+    
+     // test autre chrono
+    Timer chrono = new Timer();
+    chrono.schedule(new TimerTask(){
+        int time = 60;
+        @Override
+        public void run(){
+        System.out.println("tic-tac" + time);
+        
+        if (time==10){
+            System.out.println("Temps bientôt écoulé");
+        }
+        if (time ==0) {
+            cancel();
+        }
+        time--;
+    }
+    }
+    // pas ouf
     
     public void fenetre_chrono() {
         initComponents();
-
-        
-                
+            
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -162,7 +180,7 @@ public class interfacejeu {
     
 //suppression de la classe my listner et ajout ici car je n'arrive pas à l'appeler correctement
      private class MyListener implements ActionListener {
-       private Console Console;
+        private Console Console;
         private int cellule;
         private JButton[] buttons;
 
@@ -200,7 +218,7 @@ public class interfacejeu {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-     private javax.swing.JLabel txt_temps;
+    private javax.swing.JLabel txt_temps;
     } 
     
 
