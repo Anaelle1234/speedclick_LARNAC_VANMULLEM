@@ -99,9 +99,11 @@ public class interfacejeu {
             @Override
             public void run() {
                 System.out.println("time : "+time);
-                txt_temps.add(txt_temps, time);
+                txt_temps.setText(String.valueOf(time));
                 if (time==0){
                     cancel();
+                    casePrincipale.setVisible(false);
+                
                 }
                 time--;
             }
