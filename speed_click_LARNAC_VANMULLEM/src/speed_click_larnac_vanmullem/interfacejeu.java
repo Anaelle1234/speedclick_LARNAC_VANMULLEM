@@ -18,6 +18,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.TimerTask;
 import java.util.Timer;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,7 +97,7 @@ public class interfacejeu {
 //pour le chrono, on a pris l'idée de cette vidéo :https://www.youtube.com/watch?v=He1Pvyewr_M
    Timer chrono = new Timer();
     chrono.schedule(new TimerTask() {
-        int time=15;
+        int time=5;
             @Override
             public void run() {
                 System.out.println("time : "+time);//affichage dans la console
@@ -108,7 +109,10 @@ public class interfacejeu {
                     frame2.add(casePrincipale, BorderLayout.CENTER);//on la place au centre
                     //provient de ce site : https://www.delftstack.com/fr/howto/java/java-pop-up-window/
                     //pour que ce soit une fentre pop up
-                    JOptionPane.showMessageDialog(frame2, "Le temps est écoulé ! "+"\n"+"votre score est de : "+Console.score);
+                    JOptionPane.showMessageDialog(frame2, "Le temps est écoulé ! "+"\n"+"votre score est de : "+Console.score+"\n"+"Cliquez sur OK pour rejouer et tenter de battre votre reccord !");
+                    
+                    interfacejeu interfacejeu = new interfacejeu();//on creer un jeu 
+                    interfacejeu.affichage();
                 }
                 time--;
             }
