@@ -96,7 +96,7 @@ public class interfacejeu {
 //pour le chrono, on a pris l'idée de cette vidéo :https://www.youtube.com/watch?v=He1Pvyewr_M
    Timer chrono = new Timer();
     chrono.schedule(new TimerTask() {
-        int time=60;
+        int time=15;
             @Override
             public void run() {
                 System.out.println("time : "+time);//affichage dans la console
@@ -131,7 +131,7 @@ public class interfacejeu {
         
         MouseListener monMouseListener = new MouseListener() {
             //@Override
-            if (mouseClicked(MouseEvent e) { //public void ...
+            public void mouseClicked(MouseEvent e) { //public void ...
                 System.out.println("clic");
                 Console.moinsScore();
             }
