@@ -18,8 +18,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.TimerTask;
 import java.util.Timer;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -46,7 +48,7 @@ public class interfacejeu {
         JFrame frame = new JFrame("Speed Click Game");
         frame.setPreferredSize(new Dimension(1000,650)); // taille de la fenetre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //ferme la fenetre = prog s'arrete
-        
+
         //frame.setLayout(new GridLayout(1,2)); grille de 1 ligne et 2 colonnes --> 1 label = 1 case
         frame.setLayout(new BorderLayout()); //version de GridLayout mais en mieux
         
@@ -54,7 +56,9 @@ public class interfacejeu {
         //label1.setBorder(BorderFactory.createTitledBorder("Bienvenue dans le jeu !"));//titre du label
         //frame.add(label1,BorderLayout.CENTER); //zone principale (=zone de jeu
         
-        JLabel label2 = new JLabel ("Choisissez votre chrono et augmentez votre score en cliquant le plus vite possible sur les boutons.");
+       
+        JLabel label2 = new JLabel ("Cliquez sur les cases bleues le plus vite possible pour augmenter votre score.");
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
         label2.setBorder(BorderFactory.createTitledBorder("Règles du jeu :")); //titre
         frame.add(label2, BorderLayout.NORTH);
         // un seul label par zone
@@ -72,12 +76,14 @@ public class interfacejeu {
                
         //contenu des jpanel
         JLabel txt_temps = new JLabel("  ");
+        txt_temps.setHorizontalAlignment(SwingConstants.CENTER);
         txt_temps.setBorder(BorderFactory.createTitledBorder("tic-tac")); //créé un titre sur la bordure
         caseSecondaire.add(txt_temps);
         
         
 
-        JLabel scoreLabel = new JLabel("   ");//j'arrive pas à agrandir la fenetre donc..
+        JLabel scoreLabel = new JLabel("   ");
+        scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scoreLabel.setBorder(BorderFactory.createTitledBorder("points gagnés")); //créé un titre sur la bordure
         caseSecondaire.add(scoreLabel);
 
